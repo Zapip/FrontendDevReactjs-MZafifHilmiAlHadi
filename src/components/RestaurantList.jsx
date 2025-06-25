@@ -1,17 +1,6 @@
-import { useState, useEffect } from "react";
-import { api } from "../services/api";
 import RestaurantCard from "./RestaurantCard";
 
-const RestaurantList = () => {
-  const [restaurants, setRestaurants] = useState([]);
-
-  useEffect(() => {
-    api
-      .getRestaurants()
-      .then(setRestaurants)
-      .catch((err) => console.error("Error:", err));
-  }, []);
-
+const RestaurantList = ({ restaurants }) => {
   return (
     <section className="restaurant-list">
       {restaurants.map((restaurant) => (

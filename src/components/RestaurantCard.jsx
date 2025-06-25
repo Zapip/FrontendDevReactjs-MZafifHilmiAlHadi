@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import RatingIcon from "./icons/Rating";
+import formatPrice from "../utils/currencyFormat";
 
 function RestaurantCard({ data }) {
   return (
@@ -12,18 +14,22 @@ function RestaurantCard({ data }) {
         width="300"
         height="200"
       />
+
       <h3>{data.name}</h3>
-      <p>Rating: {data.rating}</p>
-      <section>
+      <RatingIcon rating={data.rating} size={24} />
+      <section className="card-details">
         <section className="card-info">
-          <p>{data.categories}</p>
-          <p>Harga: {data.price}</p>
+          <p>{data.categories[0]}</p>•
+          <p>
+            {formatPrice(data.lowerprice)}K-{formatPrice(data.higherprice)}K
+          </p>
         </section>
-        <p className="status">
-          <span className={data.isOpen ? "open" : "close"}></span>
-          Status: {data.isOpen ? "OPEN NOW" : "CLOSED"}
+        <p className={data.isOpen ? "status bg-open" : "status bg-closed"}>
+          <span className={data.isOpen ? "open" : "closed"}></span>
+          {data.isOpen ? "OPEN NOW" : "CLOSED"}
         </p>
       </section>
+
       <Link className="link" to={`/restaurant/${data.id}`}>
         Learn More
       </Link>

@@ -3,9 +3,6 @@ const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const getRestaurants = async () => {
   try {
     const response = await fetch(`${BASE_URL}/restaurants`);
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
     return await response.json();
   } catch (error) {
     console.error("Error fetching restaurants:", error);
@@ -16,9 +13,6 @@ const getRestaurants = async () => {
 const getRestaurantById = async (id) => {
   try {
     const response = await fetch(`${BASE_URL}/restaurants/${id}`);
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
     return await response.json();
   } catch (error) {
     console.error(`Error fetching restaurant with id ${id}:`, error);
@@ -26,20 +20,39 @@ const getRestaurantById = async (id) => {
   }
 };
 
-const getRiviews = async (restaurantId) => {
+const getReviews = async (restaurantId) => {
   try {
     const response = await fetch(
       `${BASE_URL}/reviews?restaurantId=${restaurantId}`
     );
+
     if (!response.ok) {
-      throw new Error("Network response was not ok");
+      console.log(
+        `There are no reviews on restaurant with id ${restaurantId}:`,
+        response.status
+      );
+      return [];
     }
-    return await response.json();
+
+    const data = await response.json();
+    return Array.isArray(data) ? data : [];
   } catch (error) {
     console.error(
       `Error fetching reviews for restaurant with id ${restaurantId}:`,
       error
     );
+    return [];
+  }
+};
+
+const getRestaurantsByCategory = async (category) => {
+  try {
+    const response = await fetch(
+      `${BASE_URL}/restaurants?categories=${category}`
+    );
+    return await response.json();
+  } catch (error) {
+    console.error(`Error fetching restaurants by category:`, error);
     throw error;
   }
 };
@@ -47,5 +60,6 @@ const getRiviews = async (restaurantId) => {
 export const api = {
   getRestaurants,
   getRestaurantById,
-  getRiviews,
+  getReviews,
+  getRestaurantsByCategory,
 };
