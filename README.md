@@ -18,7 +18,7 @@ GitHub Repo: [Lihat kode](https://github.com/Zapip/FrontendDevReactjs-MZafifHilm
 
 ---
 
-## Installation (Local Setup)
+## How to Start Project (Installation)
 
 ```bash
 git clone https://github.com/Zapip/FrontendDevReactjs-MZafifHilmiAlHadi.git
@@ -108,10 +108,6 @@ json{
 
 ### Categories
 
-- Field `categories` berupa array, contoh:  
-  `"categories": ["Indonesian", "Chinese"]`
-- Karena menggunakan mock API (`json-server`), filtering dilakukan **di sisi client (frontend)**
-
 ### Open Now
 
 - Filter dilakukan terhadap properti `isOpen: true`
@@ -167,6 +163,6 @@ technical-test-FE/
 
 - Fitur **login** belum di implementasikan
 - Fitur **peta (map)** belum disertakan karena bersifat opsional
-- Filter kategori belum bisa
+- Filter kategori masih terkendala
 
 ---
