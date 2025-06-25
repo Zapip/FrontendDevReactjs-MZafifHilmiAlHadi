@@ -2,6 +2,10 @@
 
 A single-page application (SPA) to display and filter restaurant data based on category, open status, and price range. Built as a submission for the Front-End Developer technical test.
 
+Live Demo: [Klik di sini](https://r-restaurant.netlify.app/)
+GitHub Repo: [Lihat kode](https://github.com/Zapip/FrontendDevReactjs-MZafifHilmiAlHadi.git)
+
+
 ---
 
 ## 🚀 Tech Stack
