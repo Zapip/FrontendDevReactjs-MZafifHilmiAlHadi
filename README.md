@@ -6,15 +6,15 @@ A single-page application (SPA) to display and filter restaurant data based on c
 
 ## 🚀 Tech Stack
 
-- **React 19** with `react-router-dom`
-- **NodeJS 22**
-- **Vite** (for development & build)
+- **React ^19.1.0** with `react-router-dom`
+- **NodeJS 22.16.0**
+- **Vite ^6.3.5** (for development & build)
 - **CSS Modules**
 - **Fetch API** (use mockapi.oi)
 
 ---
 
-## Local Setup
+## Installation (Local Setup)
 
 ```bash
 git clone https://github.com/Zapip/FrontendDevReactjs-MZafifHilmiAlHadi.git
